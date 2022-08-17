@@ -2,7 +2,7 @@
 //  LoginViewController.swift
 //  DDK_Client
 //
-//  Created by Cresoty iOS Developer on 2022/08/12.
+//  Created by iOS Developer on 2022/08/12.
 //
 
 import UIKit
@@ -32,7 +32,11 @@ class LoginViewController: UIViewController, StoryboardView {
     
     func bind(reactor: LoginViewReactor) {
         self.enterButton.rx.tap
-            .map { Reactor.Action.enterButtonTap }
+            .do(onNext: { _ in
+                self.view.endEditing(true)
+            })
+            .map { self.nameTextField.text ?? "" }
+            .map(Reactor.Action.enterButtonTap)
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         

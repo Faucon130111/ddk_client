@@ -2,7 +2,7 @@
 //  LoginViewReactor.swift
 //  DDK_Client
 //
-//  Created by Cresoty iOS Developer on 2022/08/12.
+//  Created by iOS Developer on 2022/08/12.
 //
 
 import ReactorKit
@@ -12,15 +12,17 @@ import SocketIO
 class LoginViewReactor: Reactor {
     
     enum Action {
-        case enterButtonTap
+        case enterButtonTap(String)
     }
     
     enum Mutation {
+        case setName(String)
         case socketConnect(Bool)
         case setLoading(Bool)
     }
     
     struct State {
+        var name: String = ""
         var isConnected: Bool?
         var isLoading: Bool = false
     }
@@ -34,11 +36,12 @@ class LoginViewReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .enterButtonTap:
+        case let .enterButtonTap(name):
             let socketConnect = self.socketService.connect()
                 .map { Mutation.socketConnect($0) }
             return .concat(
                 .just(.setLoading(true)),
+                .just(.setName(name)),
                 socketConnect,
                 .just(.setLoading(false))
             )
@@ -51,6 +54,10 @@ class LoginViewReactor: Reactor {
         newState.isConnected = nil
         
         switch mutation {
+        case let .setName(name):
+            newState.name = name
+            return newState
+            
         case let .socketConnect(isConnected):
             newState.isConnected = isConnected
             return newState
@@ -63,7 +70,10 @@ class LoginViewReactor: Reactor {
     }
     
     func makeChatViewReactor() -> ChatViewReactor {
-        return ChatViewReactor(socketService: self.socketService)
+        return ChatViewReactor(
+            name: self.currentState.name,
+            socketService: self.socketService
+        )
     }
     
 }

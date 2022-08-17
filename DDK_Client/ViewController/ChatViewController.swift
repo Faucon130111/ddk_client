@@ -2,7 +2,7 @@
 //  ChatViewController.swift
 //  DDK_Client
 //
-//  Created by Cresoty iOS Developer on 2022/08/11.
+//  Created by iOS Developer on 2022/08/11.
 //
 
 import UIKit
@@ -46,7 +46,10 @@ class ChatViewController: UIViewController, StoryboardView {
             .disposed(by: self.disposeBag)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(
+        _ touches: Set<UITouch>,
+        with event: UIEvent?
+    ) {
         self.view.endEditing(true)
     }
     
@@ -59,15 +62,20 @@ class ChatViewController: UIViewController, StoryboardView {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
-        reactor.state.map { $0.newMessage }
-            .filterEmpty()
-            .map { newMessage in
+        reactor.state.map { $0.newChatData }
+            .filterNil()
+            .map { chatData in
                 var text = self.textView.text ?? ""
-                text += "\n\(newMessage)"
+                text += "\n\(chatData.name) : \(chatData.message)"
                 return text
             }
             .bind(to: self.textView.rx.text)
             .disposed(by: self.disposeBag)
+        
+        reactor.sendChatDataComplete = {
+            self.textField.text = ""
+            self.textField.sendActions(for: .valueChanged)
+        }
     }
     
 }

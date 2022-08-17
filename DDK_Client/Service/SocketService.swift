@@ -2,7 +2,7 @@
 //  SocketService.swift
 //  DDK_Client
 //
-//  Created by Cresoty iOS Developer on 2022/08/12.
+//  Created by iOS Developer on 2022/08/12.
 //
 
 import Foundation
@@ -15,14 +15,17 @@ protocol SocketServiceSpec {
     init(url: URL)
     func connect() -> Observable<Bool>
     func disconnect()
-    func sendMessage(_ message: String)
-    func receiveMessage(handler: @escaping ((String) -> Void))
+    func sendChatData(
+        _ chatData: ChatData,
+        completion: (() -> ())?
+    )
+    func receiveChatData(handler: @escaping ((ChatData) -> Void))
 }
 
 class SocketService: SocketServiceSpec {
 
     private var manager: SocketManager!
-    private var receiveMessageHandler: ((String) -> Void)?
+    private var receiveChatDataHandler: ((ChatData) -> Void)?
     private var disposeBag = DisposeBag()
     private var statusObserver: PublishSubject<Bool> = .init()
     
@@ -64,15 +67,19 @@ class SocketService: SocketServiceSpec {
         self.manager.defaultSocket.disconnect()
     }
     
-    func sendMessage(_ message: String) {
+    func sendChatData(
+        _ chatData: ChatData,
+        completion: (() -> ())? = nil
+    ) {
         self.manager.defaultSocket.emit(
             "chat-msg",
-            message
+            chatData.jsonString(),
+            completion: completion
         )
     }
     
-    func receiveMessage(handler: @escaping ((String) -> Void)) {
-        self.receiveMessageHandler = handler
+    func receiveChatData(handler: @escaping ((ChatData) -> Void)) {
+        self.receiveChatDataHandler = handler
     }
     
     private func addSocketHandlers() {
@@ -91,8 +98,16 @@ class SocketService: SocketServiceSpec {
             }
         }
         self.manager.defaultSocket.on("chat-msg") { [weak self] data, ack in
-            let message = (data[0] as? String) ?? ""
-            self?.receiveMessageHandler?(message)
+            let jsonString = (data[0] as? String) ?? ""
+            guard let jsonData = jsonString.data(using: .utf8),
+                  let chatData = try? JSONDecoder().decode(
+                    ChatData.self,
+                    from: jsonData
+                  )
+            else {
+                return
+            }
+            self?.receiveChatDataHandler?(chatData)
         }
     }
     
