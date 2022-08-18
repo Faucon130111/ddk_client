@@ -10,6 +10,11 @@
 		61DE8E27046FAA4E040AB51F /* Pods_DDK_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985AC6054D8933CA8A8DA9E2 /* Pods_DDK_Client.framework */; };
 		62A69B48134443D9C0E2E528 /* Pods_DDK_Client_DDK_ClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259F0C9F94789CE14F10695B /* Pods_DDK_Client_DDK_ClientUITests.framework */; };
 		8105082528ADDA21003CC3A4 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105082428ADDA21003CC3A4 /* Util.swift */; };
+		8105082828AE10A8003CC3A4 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105082728AE10A8003CC3A4 /* DIContainer.swift */; };
+		8105082B28AE1137003CC3A4 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105082A28AE1137003CC3A4 /* ServiceAssembly.swift */; };
+		8105082D28AE13E1003CC3A4 /* ReactorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105082C28AE13E1003CC3A4 /* ReactorAssembly.swift */; };
+		8105082F28AE1548003CC3A4 /* ViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105082E28AE1548003CC3A4 /* ViewControllerAssembly.swift */; };
+		8105083128AE2274003CC3A4 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105083028AE2274003CC3A4 /* Consts.swift */; };
 		815C220328A61105003EB07E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815C220228A61105003EB07E /* LoginViewController.swift */; };
 		815C220528A611FA003EB07E /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815C220428A611FA003EB07E /* SocketService.swift */; };
 		815EB1D228AB3289009F7C2C /* ChatViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815EB1D128AB3289009F7C2C /* ChatViewReactor.swift */; };
@@ -50,6 +55,11 @@
 		44EB766DDBC9A313FFE80338 /* Pods-DDK_Client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDK_Client.debug.xcconfig"; path = "Target Support Files/Pods-DDK_Client/Pods-DDK_Client.debug.xcconfig"; sourceTree = "<group>"; };
 		550DBDDC48E77778E3EBF4E9 /* Pods-DDK_Client-DDK_ClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDK_Client-DDK_ClientUITests.debug.xcconfig"; path = "Target Support Files/Pods-DDK_Client-DDK_ClientUITests/Pods-DDK_Client-DDK_ClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8105082428ADDA21003CC3A4 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		8105082728AE10A8003CC3A4 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		8105082A28AE1137003CC3A4 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
+		8105082C28AE13E1003CC3A4 /* ReactorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAssembly.swift; sourceTree = "<group>"; };
+		8105082E28AE1548003CC3A4 /* ViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAssembly.swift; sourceTree = "<group>"; };
+		8105083028AE2274003CC3A4 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		815C220228A61105003EB07E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		815C220428A611FA003EB07E /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		815EB1D128AB3289009F7C2C /* ChatViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewReactor.swift; sourceTree = "<group>"; };
@@ -119,8 +129,20 @@
 			isa = PBXGroup;
 			children = (
 				8105082428ADDA21003CC3A4 /* Util.swift */,
+				8105083028AE2274003CC3A4 /* Consts.swift */,
 			);
 			path = Misc;
+			sourceTree = "<group>";
+		};
+		8105082928AE10DE003CC3A4 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				8105082728AE10A8003CC3A4 /* DIContainer.swift */,
+				8105082A28AE1137003CC3A4 /* ServiceAssembly.swift */,
+				8105082C28AE13E1003CC3A4 /* ReactorAssembly.swift */,
+				8105082E28AE1548003CC3A4 /* ViewControllerAssembly.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 		815EB1D528AB84E2009F7C2C /* ViewController */ = {
@@ -199,6 +221,7 @@
 				815EB1D928AC69AF009F7C2C /* Resource */,
 				815EB1D728AB84F4009F7C2C /* Extension */,
 				8105082628ADDA25003CC3A4 /* Misc */,
+				8105082928AE10DE003CC3A4 /* DI */,
 				815EB1D628AB84EB009F7C2C /* Service */,
 				815EB1DC28AC6A09009F7C2C /* Model */,
 				815EB1D528AB84E2009F7C2C /* ViewController */,
@@ -476,14 +499,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				815EB1DB28AC6A04009F7C2C /* ChatData.swift in Sources */,
+				8105083128AE2274003CC3A4 /* Consts.swift in Sources */,
+				8105082828AE10A8003CC3A4 /* DIContainer.swift in Sources */,
 				815EB1D428AB50A5009F7C2C /* UIViewController+Extension.swift in Sources */,
 				815C220528A611FA003EB07E /* SocketService.swift in Sources */,
 				815C220328A61105003EB07E /* LoginViewController.swift in Sources */,
 				819D77CE28A49E0900D597FD /* ChatViewController.swift in Sources */,
+				8105082F28AE1548003CC3A4 /* ViewControllerAssembly.swift in Sources */,
 				815EB1D228AB3289009F7C2C /* ChatViewReactor.swift in Sources */,
 				819D77CA28A49E0900D597FD /* AppDelegate.swift in Sources */,
 				8105082528ADDA21003CC3A4 /* Util.swift in Sources */,
+				8105082B28AE1137003CC3A4 /* ServiceAssembly.swift in Sources */,
 				819D77CC28A49E0900D597FD /* SceneDelegate.swift in Sources */,
+				8105082D28AE13E1003CC3A4 /* ReactorAssembly.swift in Sources */,
 				81E5FA6A28A63C1A0063C75F /* LoginViewReactor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

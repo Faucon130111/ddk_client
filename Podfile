@@ -13,6 +13,7 @@ target 'DDK_Client' do
   pod 'RxOptional'
   pod 'ReactorKit'
   pod 'SnapKit', '~> 5.6.0'
+  pod 'Swinject'
 
   target 'DDK_ClientTests' do
     inherit! :search_paths

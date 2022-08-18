@@ -50,9 +50,11 @@ class LoginViewController: UIViewController, StoryboardView {
                     )
                     return
                 }
-                if let chatViewController = UIViewController.instantiate(of: ChatViewController.self) {
-                    let chatViewReactor = reactor.makeChatViewReactor()
-                    chatViewController.reactor = chatViewReactor
+                let name = reactor.currentState.name
+                if let chatViewController = DIContainer.instance.container.resolve(
+                    ChatViewController.self,
+                    argument: name
+                ) {
                     chatViewController.modalPresentationStyle = .fullScreen
                     self.present(chatViewController, animated: true)
                 }

@@ -74,11 +74,4 @@ class LoginViewReactor: Reactor {
         }
     }
     
-    func makeChatViewReactor() -> ChatViewReactor {
-        return ChatViewReactor(
-            name: self.currentState.name,
-            socketService: self.socketService
-        )
-    }
-    
 }
