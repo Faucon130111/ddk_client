@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		61DE8E27046FAA4E040AB51F /* Pods_DDK_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985AC6054D8933CA8A8DA9E2 /* Pods_DDK_Client.framework */; };
 		62A69B48134443D9C0E2E528 /* Pods_DDK_Client_DDK_ClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259F0C9F94789CE14F10695B /* Pods_DDK_Client_DDK_ClientUITests.framework */; };
+		8105082528ADDA21003CC3A4 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105082428ADDA21003CC3A4 /* Util.swift */; };
 		815C220328A61105003EB07E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815C220228A61105003EB07E /* LoginViewController.swift */; };
 		815C220528A611FA003EB07E /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815C220428A611FA003EB07E /* SocketService.swift */; };
 		815EB1D228AB3289009F7C2C /* ChatViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815EB1D128AB3289009F7C2C /* ChatViewReactor.swift */; };
@@ -48,6 +49,7 @@
 		259F0C9F94789CE14F10695B /* Pods_DDK_Client_DDK_ClientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDK_Client_DDK_ClientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EB766DDBC9A313FFE80338 /* Pods-DDK_Client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDK_Client.debug.xcconfig"; path = "Target Support Files/Pods-DDK_Client/Pods-DDK_Client.debug.xcconfig"; sourceTree = "<group>"; };
 		550DBDDC48E77778E3EBF4E9 /* Pods-DDK_Client-DDK_ClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDK_Client-DDK_ClientUITests.debug.xcconfig"; path = "Target Support Files/Pods-DDK_Client-DDK_ClientUITests/Pods-DDK_Client-DDK_ClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8105082428ADDA21003CC3A4 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		815C220228A61105003EB07E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		815C220428A611FA003EB07E /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		815EB1D128AB3289009F7C2C /* ChatViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewReactor.swift; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 				CAA8C8EBCC7FDCEFF1532030 /* Pods_DDK_ClientTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8105082628ADDA25003CC3A4 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				8105082428ADDA21003CC3A4 /* Util.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 		815EB1D528AB84E2009F7C2C /* ViewController */ = {
@@ -188,6 +198,7 @@
 				819D77D728A49E0B00D597FD /* Info.plist */,
 				815EB1D928AC69AF009F7C2C /* Resource */,
 				815EB1D728AB84F4009F7C2C /* Extension */,
+				8105082628ADDA25003CC3A4 /* Misc */,
 				815EB1D628AB84EB009F7C2C /* Service */,
 				815EB1DC28AC6A09009F7C2C /* Model */,
 				815EB1D528AB84E2009F7C2C /* ViewController */,
@@ -471,6 +482,7 @@
 				819D77CE28A49E0900D597FD /* ChatViewController.swift in Sources */,
 				815EB1D228AB3289009F7C2C /* ChatViewReactor.swift in Sources */,
 				819D77CA28A49E0900D597FD /* AppDelegate.swift in Sources */,
+				8105082528ADDA21003CC3A4 /* Util.swift in Sources */,
 				819D77CC28A49E0900D597FD /* SceneDelegate.swift in Sources */,
 				81E5FA6A28A63C1A0063C75F /* LoginViewReactor.swift in Sources */,
 			);

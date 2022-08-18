@@ -35,9 +35,12 @@ class LoginViewReactor: Reactor {
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
+        debug("action: \(action)")
+        
         switch action {
         case let .enterButtonTap(name):
             let socketConnect = self.socketService.connect()
+                .debug("### socket_connect", trimOutput: true)
                 .map { Mutation.socketConnect($0) }
             return .concat(
                 .just(.setLoading(true)),
@@ -50,6 +53,8 @@ class LoginViewReactor: Reactor {
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
+        debug("mutation: \(mutation)")
+        
         var newState = state
         newState.isConnected = nil
         

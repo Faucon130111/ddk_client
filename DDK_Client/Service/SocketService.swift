@@ -38,26 +38,26 @@ class SocketService: SocketServiceSpec {
                 .compress
             ]
         )
+        self.addSocketHandlers()
     }
     
     func connect() -> Observable<Bool> {
-        .create { observer in
-            self.addSocketHandlers()
-            self.manager.reconnects = true
-            self.manager.defaultSocket.connect(timeoutAfter: 3.0) {
-                print("socket connect failed")
-                self.manager.reconnects = false
-                self.manager.defaultSocket.removeAllHandlers()
-                self.statusObserver.onNext(false)
-            }
-            
+        return .create { observer in
             self.statusObserver
+                .debug("### status_observer", trimOutput: true)
                 .subscribe { event in
                     let isConnected = event.element ?? false
                     observer.onNext(isConnected)
                     observer.onCompleted()
                 }
                 .disposed(by: self.disposeBag)
+            
+            self.manager.reconnects = true
+            self.manager.defaultSocket.connect(timeoutAfter: 3.0) {
+                debug("socket connect failed")
+                self.manager.reconnects = false
+                self.statusObserver.onNext(false)
+            }
             
             return Disposables.create()
         }
@@ -84,18 +84,17 @@ class SocketService: SocketServiceSpec {
     
     private func addSocketHandlers() {
         self.manager.defaultSocket.on(clientEvent: .connect) { data, ack in
-            print("socket connected")
+            debug("socket connected: \(data)")
+            self.statusObserver.onNext(true)
+        }
+        self.manager.defaultSocket.on(clientEvent: .disconnect) { data, ack in
+            debug("socket disconnect: \(data)")
         }
         self.manager.defaultSocket.on(clientEvent: .error) { data, ack in
-            print("error: \(data)")
+            debug("error: \(data)")
         }
         self.manager.defaultSocket.on(clientEvent: .statusChange) { data, ack in
-            print("status change: \(data)")
-            if let status = data[0] as? SocketIOStatus {
-                if status == .connected {
-                    self.statusObserver.onNext(true)
-                }
-            }
+            debug("status change: \(data)")
         }
         self.manager.defaultSocket.on("chat-msg") { [weak self] data, ack in
             let jsonString = (data[0] as? String) ?? ""

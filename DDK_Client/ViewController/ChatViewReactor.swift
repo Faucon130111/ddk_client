@@ -13,15 +13,18 @@ class ChatViewReactor: Reactor {
     
     enum Action {
         case sendButtonTap(String)
+        case outButtonTap
         case receiveChatData(ChatData)
     }
     
     enum Mutation {
         case receiveChatData(ChatData)
+        case dismiss
     }
     
     struct State {
         var newChatData: ChatData?
+        var dismiss: Bool = false
     }
     
     var initialState: State = State()
@@ -51,6 +54,10 @@ class ChatViewReactor: Reactor {
                 self.sendChatDataComplete?()
             }
             return .empty()
+            
+        case .outButtonTap:
+            self.socketService.disconnect()
+            return .just(.dismiss)
 
         case let .receiveChatData(chatData):
             return .just(.receiveChatData(chatData))
@@ -65,6 +72,10 @@ class ChatViewReactor: Reactor {
         switch mutation {
         case let .receiveChatData(chatData):
             newState.newChatData = chatData
+            return newState
+            
+        case .dismiss:
+            newState.dismiss = true
             return newState
             
         }

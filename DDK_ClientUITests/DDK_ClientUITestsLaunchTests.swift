@@ -2,7 +2,7 @@
 //  DDK_ClientUITestsLaunchTests.swift
 //  DDK_ClientUITests
 //
-//  Created by Cresoty iOS Developer on 2022/08/11.
+//  Created by iOS Developer on 2022/08/11.
 //
 
 import XCTest

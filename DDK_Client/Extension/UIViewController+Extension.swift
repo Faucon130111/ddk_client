@@ -2,7 +2,7 @@
 //  UIViewController+Extension.swift
 //  DDK_Client
 //
-//  Created by Cresoty iOS Developer on 2022/08/16.
+//  Created by iOS Developer on 2022/08/16.
 //
 
 import UIKit

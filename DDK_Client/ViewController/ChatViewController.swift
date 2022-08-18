@@ -22,6 +22,7 @@ class ChatViewController: UIViewController, StoryboardView {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var outButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,11 @@ class ChatViewController: UIViewController, StoryboardView {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
+        self.outButton.rx.tap
+            .map { Reactor.Action.outButtonTap }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
         reactor.state.map { $0.newChatData }
             .filterNil()
             .map { chatData in
@@ -72,6 +78,13 @@ class ChatViewController: UIViewController, StoryboardView {
             .bind(to: self.textView.rx.text)
             .disposed(by: self.disposeBag)
         
+        reactor.state.map { $0.dismiss }
+            .filter { $0 == true }
+            .subscribe(onNext: { _ in
+                self.dismiss(animated: true)
+            })
+            .disposed(by: self.disposeBag)
+                
         reactor.sendChatDataComplete = {
             self.textField.text = ""
             self.textField.sendActions(for: .valueChanged)
