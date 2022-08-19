@@ -16,12 +16,12 @@ class ViewControllerAssembly: Assembly {
             viewController.reactor = reactor
             return viewController
         }
-        container.register(ChatViewController.self) { (r: Resolver, name: String) in
+        container.register(ChatRoomViewController.self) { (r: Resolver, name: String) in
             let reactor = r.resolve(
-                ChatViewReactor.self,
+                ChatRoomViewReactor.self,
                 argument: name
             )!
-            let viewController = UIViewController.instantiate(of: ChatViewController.self)!
+            let viewController = UIViewController.instantiate(of: ChatRoomViewController.self)!
             viewController.reactor = reactor
             return viewController
         }

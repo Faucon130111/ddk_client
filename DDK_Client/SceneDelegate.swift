@@ -24,7 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         else {
             return
         }
-        let loginViewController = DIContainer.instance.container.resolve(LoginViewController.self)
+        let coordinator = Coordinator.instance
+        let loginViewController = coordinator.setRoot(.login)
+        
         let window = UIWindow(windowScene: windowScene)
         window.backgroundColor = .white
         window.rootViewController = loginViewController

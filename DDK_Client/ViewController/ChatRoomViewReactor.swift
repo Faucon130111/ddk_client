@@ -1,5 +1,5 @@
 //
-//  ChatViewReactor.swift
+//  ChatRoomViewReactor.swift
 //  DDK_Client
 //
 //  Created by iOS Developer on 2022/08/16.
@@ -9,7 +9,7 @@ import ReactorKit
 import RxSwift
 import SocketIO
 
-class ChatViewReactor: Reactor {
+class ChatRoomViewReactor: Reactor {
     
     enum Action {
         case sendButtonTap(String)
@@ -61,7 +61,6 @@ class ChatViewReactor: Reactor {
 
         case let .receiveChatData(chatData):
             return .just(.receiveChatData(chatData))
-            
             
         }
     }

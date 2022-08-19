@@ -15,14 +15,16 @@
 		8105082D28AE13E1003CC3A4 /* ReactorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105082C28AE13E1003CC3A4 /* ReactorAssembly.swift */; };
 		8105082F28AE1548003CC3A4 /* ViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105082E28AE1548003CC3A4 /* ViewControllerAssembly.swift */; };
 		8105083128AE2274003CC3A4 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105083028AE2274003CC3A4 /* Consts.swift */; };
+		8105083328AF14B2003CC3A4 /* SceneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105083228AF14B2003CC3A4 /* SceneType.swift */; };
+		8105083628AF1D3B003CC3A4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105083528AF1D3B003CC3A4 /* Coordinator.swift */; };
 		815C220328A61105003EB07E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815C220228A61105003EB07E /* LoginViewController.swift */; };
 		815C220528A611FA003EB07E /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815C220428A611FA003EB07E /* SocketService.swift */; };
-		815EB1D228AB3289009F7C2C /* ChatViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815EB1D128AB3289009F7C2C /* ChatViewReactor.swift */; };
+		815EB1D228AB3289009F7C2C /* ChatRoomViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815EB1D128AB3289009F7C2C /* ChatRoomViewReactor.swift */; };
 		815EB1D428AB50A5009F7C2C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815EB1D328AB50A5009F7C2C /* UIViewController+Extension.swift */; };
 		815EB1DB28AC6A04009F7C2C /* ChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815EB1DA28AC6A04009F7C2C /* ChatData.swift */; };
 		819D77CA28A49E0900D597FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D77C928A49E0900D597FD /* AppDelegate.swift */; };
 		819D77CC28A49E0900D597FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D77CB28A49E0900D597FD /* SceneDelegate.swift */; };
-		819D77CE28A49E0900D597FD /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D77CD28A49E0900D597FD /* ChatViewController.swift */; };
+		819D77CE28A49E0900D597FD /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D77CD28A49E0900D597FD /* ChatRoomViewController.swift */; };
 		819D77D128A49E0900D597FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 819D77CF28A49E0900D597FD /* Main.storyboard */; };
 		819D77D328A49E0B00D597FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 819D77D228A49E0B00D597FD /* Assets.xcassets */; };
 		819D77D628A49E0B00D597FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 819D77D428A49E0B00D597FD /* LaunchScreen.storyboard */; };
@@ -60,15 +62,17 @@
 		8105082C28AE13E1003CC3A4 /* ReactorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorAssembly.swift; sourceTree = "<group>"; };
 		8105082E28AE1548003CC3A4 /* ViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAssembly.swift; sourceTree = "<group>"; };
 		8105083028AE2274003CC3A4 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
+		8105083228AF14B2003CC3A4 /* SceneType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneType.swift; sourceTree = "<group>"; };
+		8105083528AF1D3B003CC3A4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		815C220228A61105003EB07E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		815C220428A611FA003EB07E /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
-		815EB1D128AB3289009F7C2C /* ChatViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewReactor.swift; sourceTree = "<group>"; };
+		815EB1D128AB3289009F7C2C /* ChatRoomViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewReactor.swift; sourceTree = "<group>"; };
 		815EB1D328AB50A5009F7C2C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		815EB1DA28AC6A04009F7C2C /* ChatData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatData.swift; sourceTree = "<group>"; };
 		819D77C628A49E0900D597FD /* DDK_Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDK_Client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		819D77C928A49E0900D597FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		819D77CB28A49E0900D597FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		819D77CD28A49E0900D597FD /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		819D77CD28A49E0900D597FD /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		819D77D028A49E0900D597FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		819D77D228A49E0B00D597FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		819D77D528A49E0B00D597FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -145,13 +149,22 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		8105083428AF14BB003CC3A4 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8105083228AF14B2003CC3A4 /* SceneType.swift */,
+				8105083528AF1D3B003CC3A4 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		815EB1D528AB84E2009F7C2C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				815C220228A61105003EB07E /* LoginViewController.swift */,
 				81E5FA6928A63C1A0063C75F /* LoginViewReactor.swift */,
-				819D77CD28A49E0900D597FD /* ChatViewController.swift */,
-				815EB1D128AB3289009F7C2C /* ChatViewReactor.swift */,
+				819D77CD28A49E0900D597FD /* ChatRoomViewController.swift */,
+				815EB1D128AB3289009F7C2C /* ChatRoomViewReactor.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -222,6 +235,7 @@
 				815EB1D728AB84F4009F7C2C /* Extension */,
 				8105082628ADDA25003CC3A4 /* Misc */,
 				8105082928AE10DE003CC3A4 /* DI */,
+				8105083428AF14BB003CC3A4 /* Coordinator */,
 				815EB1D628AB84EB009F7C2C /* Service */,
 				815EB1DC28AC6A09009F7C2C /* Model */,
 				815EB1D528AB84E2009F7C2C /* ViewController */,
@@ -504,10 +518,12 @@
 				815EB1D428AB50A5009F7C2C /* UIViewController+Extension.swift in Sources */,
 				815C220528A611FA003EB07E /* SocketService.swift in Sources */,
 				815C220328A61105003EB07E /* LoginViewController.swift in Sources */,
-				819D77CE28A49E0900D597FD /* ChatViewController.swift in Sources */,
+				819D77CE28A49E0900D597FD /* ChatRoomViewController.swift in Sources */,
 				8105082F28AE1548003CC3A4 /* ViewControllerAssembly.swift in Sources */,
-				815EB1D228AB3289009F7C2C /* ChatViewReactor.swift in Sources */,
+				815EB1D228AB3289009F7C2C /* ChatRoomViewReactor.swift in Sources */,
 				819D77CA28A49E0900D597FD /* AppDelegate.swift in Sources */,
+				8105083628AF1D3B003CC3A4 /* Coordinator.swift in Sources */,
+				8105083328AF14B2003CC3A4 /* SceneType.swift in Sources */,
 				8105082528ADDA21003CC3A4 /* Util.swift in Sources */,
 				8105082B28AE1137003CC3A4 /* ServiceAssembly.swift in Sources */,
 				819D77CC28A49E0900D597FD /* SceneDelegate.swift in Sources */,

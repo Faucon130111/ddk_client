@@ -14,9 +14,9 @@ class ReactorAssembly: Assembly {
             let socketService = r.resolve(SocketService.self)!
             return LoginViewReactor(socketService: socketService)
         }
-        container.register(ChatViewReactor.self) { (r: Resolver, name: String) in
+        container.register(ChatRoomViewReactor.self) { (r: Resolver, name: String) in
             let socketService = r.resolve(SocketService.self)!
-            return ChatViewReactor(
+            return ChatRoomViewReactor(
                 name: name,
                 socketService: socketService
             )

@@ -40,50 +40,29 @@ class LoginViewController: UIViewController, StoryboardView {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
-        reactor.state.map { $0.isConnected }
+        let isConnect = reactor.state.map { $0.isConnected }
             .filterNil()
-            .subscribe(onNext: { isConnected in
-                if isConnected == false {
-                    self.showAlert(
-                        title: "서버 접속 실패",
-                        message: "잠시 후 다시 시도해 주세요."
-                    )
-                    return
-                }
-                let name = reactor.currentState.name
-                if let chatViewController = DIContainer.instance.container.resolve(
-                    ChatViewController.self,
-                    argument: name
-                ) {
-                    chatViewController.modalPresentationStyle = .fullScreen
-                    self.present(chatViewController, animated: true)
-                }
-            })
+            .share()
+        
+        isConnect
+            .filter { $0 == false }
+            .map { _ in (
+                title: "서버 접속 실패",
+                message: "잠시 후 다시 시도해 주세요."
+            )}
+            .bind(to: self.rx.showAlert)
+            .disposed(by: self.disposeBag)
+        
+        isConnect
+            .filter { $0 == true }
+            .map { _ in reactor.currentState.name }
+            .map(SceneType.chatRoom)
+            .bind(to: Coordinator.instance.rx.present)
             .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.isLoading }
             .bind(to: self.rx.setActivityIndicator)
             .disposed(by: self.disposeBag)
-    }
-    
-    private func showAlert(
-        title: String?,
-        message: String?
-    ) {
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: .alert
-        )
-        let okAction = UIAlertAction(
-            title: "확인",
-            style: .default
-        )
-        alert.addAction(okAction)
-        self.present(
-            alert,
-            animated: true
-        )
     }
     
 }

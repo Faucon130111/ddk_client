@@ -1,5 +1,5 @@
 //
-//  ChatViewController.swift
+//  ChatRoomViewController.swift
 //  DDK_Client
 //
 //  Created by iOS Developer on 2022/08/11.
@@ -16,7 +16,7 @@ import SnapKit
 
 class ChatRoomViewController: UIViewController, StoryboardView {
 
-    typealias Reactor = ChatViewReactor
+    typealias Reactor = ChatRoomViewReactor
     var disposeBag: DisposeBag = DisposeBag()
     
     @IBOutlet weak var textView: UITextView!
@@ -54,7 +54,7 @@ class ChatRoomViewController: UIViewController, StoryboardView {
         self.view.endEditing(true)
     }
     
-    func bind(reactor: ChatViewReactor) {
+    func bind(reactor: ChatRoomViewReactor) {
         self.sendButton.rx.tap
             .map { self.textField.text }
             .filterNil()
@@ -80,9 +80,8 @@ class ChatRoomViewController: UIViewController, StoryboardView {
         
         reactor.state.map { $0.dismiss }
             .filter { $0 == true }
-            .subscribe(onNext: { _ in
-                self.dismiss(animated: true)
-            })
+            .map { _ in }
+            .bind(to: Coordinator.instance.rx.dismiss)
             .disposed(by: self.disposeBag)
                 
         reactor.sendChatDataComplete = {

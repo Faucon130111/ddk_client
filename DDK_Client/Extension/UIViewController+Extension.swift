@@ -49,6 +49,26 @@ extension UIViewController {
         }
     }
     
+    func showAlert(
+        title: String?,
+        message: String?
+    ) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(
+            title: "확인",
+            style: .default
+        )
+        alert.addAction(okAction)
+        self.present(
+            alert,
+            animated: true
+        )
+    }
+    
 }
 
 
@@ -57,6 +77,15 @@ extension Reactive where Base: UIViewController {
     var setActivityIndicator: Binder<Bool> {
         return Binder(base) { viewController, isLoading in
             viewController.setActivityIndicator(isLoading: isLoading)
+        }
+    }
+    
+    var showAlert: Binder<(title: String?, message: String?)> {
+        return Binder(base) { viewController, args in
+            viewController.showAlert(
+                title: args.title,
+                message: args.message
+            )
         }
     }
     
