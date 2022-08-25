@@ -23,6 +23,10 @@ protocol SocketServiceSpec {
 }
 
 class SocketService: SocketServiceSpec {
+    
+    private enum SocketEvent: String {
+        case chatMessage = "chat-msg"
+    }
 
     private var manager: SocketManager!
     private var receiveChatDataHandler: ((ChatData) -> Void)?
@@ -72,7 +76,7 @@ class SocketService: SocketServiceSpec {
         completion: (() -> ())? = nil
     ) {
         self.manager.defaultSocket.emit(
-            "chat-msg",
+            SocketEvent.chatMessage.rawValue,
             chatData.jsonString(),
             completion: completion
         )
@@ -96,7 +100,7 @@ class SocketService: SocketServiceSpec {
         self.manager.defaultSocket.on(clientEvent: .statusChange) { data, ack in
             debug("status change: \(data)")
         }
-        self.manager.defaultSocket.on("chat-msg") { [weak self] data, ack in
+        self.manager.defaultSocket.on(SocketEvent.chatMessage.rawValue) { [weak self] data, ack in
             let jsonString = (data[0] as? String) ?? ""
             guard let jsonData = jsonString.data(using: .utf8),
                   let chatData = try? JSONDecoder().decode(

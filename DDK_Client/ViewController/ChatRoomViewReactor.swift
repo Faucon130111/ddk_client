@@ -29,12 +29,12 @@ class ChatRoomViewReactor: Reactor {
     
     var initialState: State = State()
     private var name: String
-    private var socketService: SocketService
+    private var socketService: SocketServiceSpec
     var sendChatDataComplete: (() -> Void)?
     
     init(
         name: String,
-        socketService: SocketService
+        socketService: SocketServiceSpec
     ) {
         self.name = name
         self.socketService = socketService
@@ -76,6 +76,26 @@ class ChatRoomViewReactor: Reactor {
         case .dismiss:
             newState.dismiss = true
             return newState
+            
+        }
+    }
+    
+}
+
+extension ChatRoomViewReactor.Action: Equatable {
+    
+    static func == (
+        lhs: ChatRoomViewReactor.Action,
+        rhs: ChatRoomViewReactor.Action
+    ) -> Bool {
+        switch (lhs, rhs) {
+        case (.sendButtonTap, .sendButtonTap),
+            (.outButtonTap, .outButtonTap),
+            (.receiveChatData, .receiveChatData):
+            return true
+            
+        default:
+            return false
             
         }
     }

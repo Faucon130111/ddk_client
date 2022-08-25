@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChatData: Codable {
+struct ChatData {
     var name: String
     var message: String
     
@@ -18,6 +18,11 @@ struct ChatData: Codable {
         self.name = name
         self.message = message
     }
+    
+}
+
+
+extension ChatData: Codable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -42,6 +47,18 @@ struct ChatData: Codable {
             data: jsonData,
             encoding: .utf8
         ) ?? ""
+    }
+    
+}
+
+
+extension ChatData: Equatable {
+    
+    static func == (
+        lhs: Self,
+        rhs: Self
+    ) -> Bool {
+        return lhs.name == rhs.name && lhs.message == rhs.message
     }
     
 }

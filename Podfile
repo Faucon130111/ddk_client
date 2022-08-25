@@ -18,6 +18,8 @@ target 'DDK_Client' do
   target 'DDK_ClientTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Quick'
+    pod 'Nimble'
   end
 
   target 'DDK_ClientUITests' do

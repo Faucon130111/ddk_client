@@ -17,6 +17,8 @@
 		8105083128AE2274003CC3A4 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105083028AE2274003CC3A4 /* Consts.swift */; };
 		8105083328AF14B2003CC3A4 /* SceneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105083228AF14B2003CC3A4 /* SceneType.swift */; };
 		8105083628AF1D3B003CC3A4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105083528AF1D3B003CC3A4 /* Coordinator.swift */; };
+		8105084528B5B869003CC3A4 /* MockSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105084428B5B869003CC3A4 /* MockSocketService.swift */; };
+		8105084728B74271003CC3A4 /* ChatRoomViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105084628B74271003CC3A4 /* ChatRoomViewControllerSpec.swift */; };
 		815C220328A61105003EB07E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815C220228A61105003EB07E /* LoginViewController.swift */; };
 		815C220528A611FA003EB07E /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815C220428A611FA003EB07E /* SocketService.swift */; };
 		815EB1D228AB3289009F7C2C /* ChatRoomViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815EB1D128AB3289009F7C2C /* ChatRoomViewReactor.swift */; };
@@ -28,7 +30,7 @@
 		819D77D128A49E0900D597FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 819D77CF28A49E0900D597FD /* Main.storyboard */; };
 		819D77D328A49E0B00D597FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 819D77D228A49E0B00D597FD /* Assets.xcassets */; };
 		819D77D628A49E0B00D597FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 819D77D428A49E0B00D597FD /* LaunchScreen.storyboard */; };
-		819D77E128A49E0B00D597FD /* DDK_ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D77E028A49E0B00D597FD /* DDK_ClientTests.swift */; };
+		819D77E128A49E0B00D597FD /* LoginViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D77E028A49E0B00D597FD /* LoginViewControllerSpec.swift */; };
 		819D77EB28A49E0B00D597FD /* DDK_ClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D77EA28A49E0B00D597FD /* DDK_ClientUITests.swift */; };
 		819D77ED28A49E0B00D597FD /* DDK_ClientUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D77EC28A49E0B00D597FD /* DDK_ClientUITestsLaunchTests.swift */; };
 		81E5FA6A28A63C1A0063C75F /* LoginViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5FA6928A63C1A0063C75F /* LoginViewReactor.swift */; };
@@ -64,6 +66,8 @@
 		8105083028AE2274003CC3A4 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		8105083228AF14B2003CC3A4 /* SceneType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneType.swift; sourceTree = "<group>"; };
 		8105083528AF1D3B003CC3A4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		8105084428B5B869003CC3A4 /* MockSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSocketService.swift; sourceTree = "<group>"; };
+		8105084628B74271003CC3A4 /* ChatRoomViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewControllerSpec.swift; sourceTree = "<group>"; };
 		815C220228A61105003EB07E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		815C220428A611FA003EB07E /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		815EB1D128AB3289009F7C2C /* ChatRoomViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewReactor.swift; sourceTree = "<group>"; };
@@ -78,7 +82,7 @@
 		819D77D528A49E0B00D597FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		819D77D728A49E0B00D597FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		819D77DC28A49E0B00D597FD /* DDK_ClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDK_ClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		819D77E028A49E0B00D597FD /* DDK_ClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDK_ClientTests.swift; sourceTree = "<group>"; };
+		819D77E028A49E0B00D597FD /* LoginViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerSpec.swift; sourceTree = "<group>"; };
 		819D77E628A49E0B00D597FD /* DDK_ClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDK_ClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		819D77EA28A49E0B00D597FD /* DDK_ClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDK_ClientUITests.swift; sourceTree = "<group>"; };
 		819D77EC28A49E0B00D597FD /* DDK_ClientUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDK_ClientUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -246,7 +250,9 @@
 		819D77DF28A49E0B00D597FD /* DDK_ClientTests */ = {
 			isa = PBXGroup;
 			children = (
-				819D77E028A49E0B00D597FD /* DDK_ClientTests.swift */,
+				8105084428B5B869003CC3A4 /* MockSocketService.swift */,
+				819D77E028A49E0B00D597FD /* LoginViewControllerSpec.swift */,
+				8105084628B74271003CC3A4 /* ChatRoomViewControllerSpec.swift */,
 			);
 			path = DDK_ClientTests;
 			sourceTree = "<group>";
@@ -303,6 +309,7 @@
 				819D77D828A49E0B00D597FD /* Sources */,
 				819D77D928A49E0B00D597FD /* Frameworks */,
 				819D77DA28A49E0B00D597FD /* Resources */,
+				5CC4A5BE0DB26A694BEECB37 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -466,6 +473,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5CC4A5BE0DB26A694BEECB37 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DDK_ClientTests/Pods-DDK_ClientTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DDK_ClientTests/Pods-DDK_ClientTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DDK_ClientTests/Pods-DDK_ClientTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BEBED4719B81C9D5F1A4F0F0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -536,7 +560,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				819D77E128A49E0B00D597FD /* DDK_ClientTests.swift in Sources */,
+				8105084528B5B869003CC3A4 /* MockSocketService.swift in Sources */,
+				819D77E128A49E0B00D597FD /* LoginViewControllerSpec.swift in Sources */,
+				8105084728B74271003CC3A4 /* ChatRoomViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,7 +798,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4K3PMR7F3H;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "kr.co.bonhyuk.DDK-ClientTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -793,7 +819,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4K3PMR7F3H;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "kr.co.bonhyuk.DDK-ClientTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";

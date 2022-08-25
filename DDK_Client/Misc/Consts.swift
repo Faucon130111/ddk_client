@@ -7,6 +7,22 @@
 
 import Foundation
 
-enum Consts: String {
-    case socketServerURL = ""
+enum Consts {
+    
+    enum URL: String {
+        case socketServer = ""
+    }
+    
+    enum StoryBoard: String {
+        case main = "Main"
+    }
+    
+    enum Idenfitier: String {
+        case activityIndicator
+    }
+    
+    enum DateFormat: String {
+        case forDebug = "yyyy-MM-dd HH:mm:ss.SSS"
+    }
+    
 }

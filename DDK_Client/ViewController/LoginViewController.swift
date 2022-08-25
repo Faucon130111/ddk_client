@@ -40,8 +40,9 @@ class LoginViewController: UIViewController, StoryboardView {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
-        let isConnect = reactor.state.map { $0.isConnected }
+        let isConnect = reactor.pulse(\.$isConnected)
             .filterNil()
+            .debug("### isConnected")
             .share()
         
         isConnect

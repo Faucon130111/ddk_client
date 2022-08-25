@@ -15,7 +15,7 @@ extension UIViewController {
     
     static func instantiate<T: UIViewController>(of type: T.Type) -> T? {
         let storyboard = UIStoryboard(
-            name: "Main",
+            name: Consts.StoryBoard.main.rawValue,
             bundle: nil
         )
         let identifier = String(describing: type)
@@ -23,7 +23,7 @@ extension UIViewController {
     }
     
     func setActivityIndicator(isLoading: Bool) {
-        let identifier = "activityIndicator"
+        let identifier = Consts.Idenfitier.activityIndicator.rawValue
         var activityIndicatorView: UIActivityIndicatorView!
         
         if let indicatorView = (self.view.subviews.filter {
@@ -47,6 +47,17 @@ extension UIViewController {
             self.view.isUserInteractionEnabled = true
             activityIndicatorView.stopAnimating()
         }
+    }
+    
+    func isActivityIndicatorAnimating() -> Bool {
+        let identifier = Consts.Idenfitier.activityIndicator.rawValue
+        guard let indicatorView = (self.view.subviews.filter {
+            $0.accessibilityIdentifier == identifier
+        }.first) as? UIActivityIndicatorView
+        else {
+            return false
+        }
+        return indicatorView.isAnimating
     }
     
     func showAlert(

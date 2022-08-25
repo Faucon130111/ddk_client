@@ -30,6 +30,10 @@ class Coordinator: CoordinatorSpec {
         return target
     }
     
+    func setRootViewController(_ viewController: UIViewController) {
+        self.rootViewController = viewController
+    }
+    
     func present(_ type: SceneType) {
         let target = viewController(type)
         target.modalPresentationStyle = .fullScreen
@@ -50,12 +54,15 @@ extension Coordinator {
     private func viewController(_ type: SceneType) -> UIViewController {
         switch type {
         case .login:
-            return di.container.resolve(LoginViewController.self)!
+            return di.container.resolve(
+                LoginViewController.self,
+                argument: false
+            )!
             
         case let .chatRoom(name):
             return di.container.resolve(
                 ChatRoomViewController.self,
-                argument: name
+                arguments: name, false
             )!
             
         }

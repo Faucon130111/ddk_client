@@ -1,4 +1,6 @@
 PODS:
+  - Nimble (10.0.0)
+  - Quick (5.0.1)
   - ReactorKit (3.2.0):
     - RxSwift (~> 6.0)
     - WeakMapTable (~> 1.1)
@@ -22,6 +24,8 @@ PODS:
   - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
+  - Nimble
+  - Quick
   - ReactorKit
   - RxCocoa (= 6.5.0)
   - RxKeyboard
@@ -33,6 +37,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Nimble
+    - Quick
     - ReactorKit
     - RxCocoa
     - RxKeyboard
@@ -46,6 +52,8 @@ SPEC REPOS:
     - WeakMapTable
 
 SPEC CHECKSUMS:
+  Nimble: 5316ef81a170ce87baf72dd961f22f89a602ff84
+  Quick: 749aa754fd1e7d984f2000fe051e18a3a9809179
   ReactorKit: e8b11d6b9c415405f381669b095c154a05b59eca
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxKeyboard: 4f5863f43b4ff0cbb2a20b94688d6b80c8a43c14
@@ -58,6 +66,6 @@ SPEC CHECKSUMS:
   Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 563f418e5193832fc0831d0cfe3bd6a55f84a8a1
+PODFILE CHECKSUM: 6a7e7f449a84c745b30d453720dc6952568ab73d
 
 COCOAPODS: 1.11.2

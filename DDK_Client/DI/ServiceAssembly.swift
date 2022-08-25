@@ -11,7 +11,7 @@ class ServiceAssembly: Assembly {
     
     func assemble(container: Container) {
         container.register(SocketService.self) { _ in
-            let url = URL(string: Consts.socketServerURL.rawValue)!
+            let url = URL(string: Consts.URL.socketServer.rawValue)!
             return SocketService(url: url)
         }
         .inObjectScope(.container)

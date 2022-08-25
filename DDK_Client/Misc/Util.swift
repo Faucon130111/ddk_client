@@ -9,7 +9,7 @@ import Foundation
 
 func debug(_ message: String) {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+    dateFormatter.dateFormat = Consts.DateFormat.forDebug.rawValue
     let dateString = dateFormatter.string(from: Date())
     print("\(dateString): ### \(message)")
 }

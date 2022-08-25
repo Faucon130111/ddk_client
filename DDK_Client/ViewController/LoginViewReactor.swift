@@ -23,14 +23,14 @@ class LoginViewReactor: Reactor {
     
     struct State {
         var name: String = ""
-        var isConnected: Bool?
+        @Pulse var isConnected: Bool?
         var isLoading: Bool = false
     }
     
     var initialState: State = State()
-    private var socketService: SocketService
+    private var socketService: SocketServiceSpec
     
-    init(socketService: SocketService) {
+    init(socketService: SocketServiceSpec) {
         self.socketService = socketService
     }
     
@@ -56,7 +56,6 @@ class LoginViewReactor: Reactor {
         debug("mutation: \(mutation)")
         
         var newState = state
-        newState.isConnected = nil
         
         switch mutation {
         case let .setName(name):
@@ -73,5 +72,10 @@ class LoginViewReactor: Reactor {
             
         }
     }
+    
+}
+
+
+extension LoginViewReactor.Action: Equatable {
     
 }
