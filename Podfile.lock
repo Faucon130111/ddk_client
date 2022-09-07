@@ -1,4 +1,11 @@
 PODS:
+  - Alamofire (5.6.1)
+  - JWTDecode (3.0.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (15.0.0):
+    - Moya/Core
+    - RxSwift (~> 6.0)
   - Nimble (10.0.0)
   - Quick (5.0.1)
   - ReactorKit (3.2.0):
@@ -20,10 +27,14 @@ PODS:
   - Socket.IO-Client-Swift (15.2.0):
     - Starscream (~> 3.1)
   - Starscream (3.1.1)
+  - SwiftyJSON (4.3.0)
+  - SwiftyUserDefaults (5.3.0)
   - Swinject (2.8.1)
   - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
+  - JWTDecode (~> 3.0)
+  - Moya/RxSwift (~> 15.0)
   - Nimble
   - Quick
   - ReactorKit
@@ -33,10 +44,15 @@ DEPENDENCIES:
   - RxSwift (= 6.5.0)
   - SnapKit (~> 5.6.0)
   - Socket.IO-Client-Swift (~> 15.2.0)
+  - SwiftyJSON (~> 4.0)
+  - SwiftyUserDefaults (~> 5.0)
   - Swinject
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - JWTDecode
+    - Moya
     - Nimble
     - Quick
     - ReactorKit
@@ -48,10 +64,15 @@ SPEC REPOS:
     - SnapKit
     - Socket.IO-Client-Swift
     - Starscream
+    - SwiftyJSON
+    - SwiftyUserDefaults
     - Swinject
     - WeakMapTable
 
 SPEC CHECKSUMS:
+  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  JWTDecode: 82480a7173f8a811954e7e14a2b59f688ca4222a
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   Nimble: 5316ef81a170ce87baf72dd961f22f89a602ff84
   Quick: 749aa754fd1e7d984f2000fe051e18a3a9809179
   ReactorKit: e8b11d6b9c415405f381669b095c154a05b59eca
@@ -63,9 +84,11 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
   Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 6a7e7f449a84c745b30d453720dc6952568ab73d
+PODFILE CHECKSUM: cc288cbbadce77db963ac5e2d191c3690059c9a0
 
 COCOAPODS: 1.11.2

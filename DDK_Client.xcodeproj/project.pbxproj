@@ -34,6 +34,9 @@
 		819D77EB28A49E0B00D597FD /* DDK_ClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D77EA28A49E0B00D597FD /* DDK_ClientUITests.swift */; };
 		819D77ED28A49E0B00D597FD /* DDK_ClientUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D77EC28A49E0B00D597FD /* DDK_ClientUITestsLaunchTests.swift */; };
 		81E5FA6A28A63C1A0063C75F /* LoginViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5FA6928A63C1A0063C75F /* LoginViewReactor.swift */; };
+		81FC25A028C1C45500ECFDBC /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC259F28C1C45500ECFDBC /* APIService.swift */; };
+		81FC25A228C1CE1300ECFDBC /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC25A128C1CE1300ECFDBC /* DefaultsKeys.swift */; };
+		81FC25A428C1D3EC00ECFDBC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC25A328C1D3EC00ECFDBC /* NetworkService.swift */; };
 		D64A2DFC3521406550514B8A /* Pods_DDK_ClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAA8C8EBCC7FDCEFF1532030 /* Pods_DDK_ClientTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +90,9 @@
 		819D77EA28A49E0B00D597FD /* DDK_ClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDK_ClientUITests.swift; sourceTree = "<group>"; };
 		819D77EC28A49E0B00D597FD /* DDK_ClientUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDK_ClientUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		81E5FA6928A63C1A0063C75F /* LoginViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewReactor.swift; sourceTree = "<group>"; };
+		81FC259F28C1C45500ECFDBC /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		81FC25A128C1CE1300ECFDBC /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
+		81FC25A328C1D3EC00ECFDBC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8DEABACC47B6E317B728F6B2 /* Pods-DDK_Client-DDK_ClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDK_Client-DDK_ClientUITests.release.xcconfig"; path = "Target Support Files/Pods-DDK_Client-DDK_ClientUITests/Pods-DDK_Client-DDK_ClientUITests.release.xcconfig"; sourceTree = "<group>"; };
 		985AC6054D8933CA8A8DA9E2 /* Pods_DDK_Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDK_Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAA8C8EBCC7FDCEFF1532030 /* Pods_DDK_ClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDK_ClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +144,7 @@
 			children = (
 				8105082428ADDA21003CC3A4 /* Util.swift */,
 				8105083028AE2274003CC3A4 /* Consts.swift */,
+				81FC25A128C1CE1300ECFDBC /* DefaultsKeys.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -177,6 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				815C220428A611FA003EB07E /* SocketService.swift */,
+				81FC259F28C1C45500ECFDBC /* APIService.swift */,
+				81FC25A328C1D3EC00ECFDBC /* NetworkService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -546,12 +555,15 @@
 				8105082F28AE1548003CC3A4 /* ViewControllerAssembly.swift in Sources */,
 				815EB1D228AB3289009F7C2C /* ChatRoomViewReactor.swift in Sources */,
 				819D77CA28A49E0900D597FD /* AppDelegate.swift in Sources */,
+				81FC25A428C1D3EC00ECFDBC /* NetworkService.swift in Sources */,
 				8105083628AF1D3B003CC3A4 /* Coordinator.swift in Sources */,
 				8105083328AF14B2003CC3A4 /* SceneType.swift in Sources */,
 				8105082528ADDA21003CC3A4 /* Util.swift in Sources */,
 				8105082B28AE1137003CC3A4 /* ServiceAssembly.swift in Sources */,
+				81FC25A228C1CE1300ECFDBC /* DefaultsKeys.swift in Sources */,
 				819D77CC28A49E0900D597FD /* SceneDelegate.swift in Sources */,
 				8105082D28AE13E1003CC3A4 /* ReactorAssembly.swift in Sources */,
+				81FC25A028C1C45500ECFDBC /* APIService.swift in Sources */,
 				81E5FA6A28A63C1A0063C75F /* LoginViewReactor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

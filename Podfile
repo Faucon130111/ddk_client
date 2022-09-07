@@ -14,6 +14,10 @@ target 'DDK_Client' do
   pod 'ReactorKit'
   pod 'SnapKit', '~> 5.6.0'
   pod 'Swinject'
+  pod 'Moya/RxSwift', '~> 15.0'
+  pod 'SwiftyUserDefaults', '~> 5.0'
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'JWTDecode', '~> 3.0'
 
   target 'DDK_ClientTests' do
     inherit! :search_paths
