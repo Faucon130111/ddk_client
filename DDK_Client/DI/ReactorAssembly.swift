@@ -11,15 +11,21 @@ class ReactorAssembly: Assembly {
     
     func assemble(container: Container) {
         container.register(LoginViewReactor.self) { r in
-            let socketService = r.resolve(SocketService.self)!
-            return LoginViewReactor(socketService: socketService)
+            let networkService = r.resolve(NetworkService.self)!
+            return LoginViewReactor(networkService: networkService)
         }
+        
         container.register(ChatRoomViewReactor.self) { (r: Resolver, name: String) in
             let socketService = r.resolve(SocketService.self)!
             return ChatRoomViewReactor(
                 name: name,
                 socketService: socketService
             )
+        }
+        
+        container.register(SignUpViewReactor.self) { r in
+            let networkService = r.resolve(NetworkService.self)!
+            return SignUpViewReactor(networkService: networkService)
         }
     }
     

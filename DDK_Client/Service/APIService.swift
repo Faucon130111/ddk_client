@@ -10,6 +10,8 @@ import Moya
 import SwiftyUserDefaults
 
 enum APIService {
+    /// 아이디 중복 체크
+    case isDuplicateId(id: String)
     /// 회원가입
     case signUp(
         id: String,
@@ -34,14 +36,17 @@ extension APIService: TargetType {
     
     var path: String {
         switch self {
+        case .isDuplicateId:
+            return "/api/isDuplicateId"
+            
         case .signUp:
-            return "/signUp"
+            return "/api/signUp"
             
         case .login:
-            return "/login"
+            return "/api/login"
             
         case .refreshAccessToken:
-            return "/refreshAccessToken"
+            return "/api/refreshAccessToken"
             
         }
     }
@@ -54,7 +59,8 @@ extension APIService: TargetType {
         var headers = ["Content-Type": "application/x-www-form-urlencoded"]
         
         switch self {
-        case .signUp,
+        case .isDuplicateId,
+                .signUp,
                 .login,
                 .refreshAccessToken:
             return headers
@@ -74,17 +80,20 @@ extension APIService: TargetType {
     var task: Task {
         var parameters: Parameters = [:]
         switch self {
+        case let .isDuplicateId(id):
+            parameters = ["userId": id]
+            
         case let .signUp(id, pw, name):
             parameters = [
-                "id": id,
-                "pw": pw,
-                "name": name
+                "userId": id,
+                "userPw": pw,
+                "userName": name
             ]
             
         case let .login(id, pw):
             parameters = [
-                "id": id,
-                "pw": pw
+                "userId": id,
+                "userPw": pw
             ]
             
         case let .refreshAccessToken(refreshToken):

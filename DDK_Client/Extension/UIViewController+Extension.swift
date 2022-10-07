@@ -62,7 +62,8 @@ extension UIViewController {
     
     func showAlert(
         title: String?,
-        message: String?
+        message: String?,
+        handler: ((UIAlertAction) -> Void)?
     ) {
         let alert = UIAlertController(
             title: title,
@@ -71,7 +72,8 @@ extension UIViewController {
         )
         let okAction = UIAlertAction(
             title: "확인",
-            style: .default
+            style: .default,
+            handler: handler
         )
         alert.addAction(okAction)
         self.present(
@@ -91,11 +93,16 @@ extension Reactive where Base: UIViewController {
         }
     }
     
-    var showAlert: Binder<(title: String?, message: String?)> {
+    var showAlert: Binder<(
+        title: String?,
+        message: String?,
+        handler: ((UIAlertAction) -> Void)?
+    )> {
         return Binder(base) { viewController, args in
             viewController.showAlert(
                 title: args.title,
-                message: args.message
+                message: args.message,
+                handler: args.handler
             )
         }
     }

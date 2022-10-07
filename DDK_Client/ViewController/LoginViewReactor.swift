@@ -2,50 +2,51 @@
 //  LoginViewReactor.swift
 //  DDK_Client
 //
-//  Created by iOS Developer on 2022/08/12.
+//  Created by 박본혁 on 2022/09/27.
 //
 
 import ReactorKit
 import RxSwift
-import SocketIO
 
 class LoginViewReactor: Reactor {
     
     enum Action {
-        case enterButtonTap(String)
+        case loginButtonTap([String])
     }
     
     enum Mutation {
-        case setName(String)
-        case socketConnect(Bool)
+        case setLoginComplete(Bool)
         case setLoading(Bool)
     }
     
     struct State {
-        var name: String = ""
-        @Pulse var isConnected: Bool?
+        @Pulse var isLoginComplete: Bool?
         var isLoading: Bool = false
     }
-    
+
     var initialState: State = State()
-    private var socketService: SocketServiceSpec
+    var networkService: NetworkServiceSpec
     
-    init(socketService: SocketServiceSpec) {
-        self.socketService = socketService
+    init(networkService: NetworkServiceSpec) {
+        self.networkService = networkService
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
-        debug("action: \(action)")
-        
         switch action {
-        case let .enterButtonTap(name):
-            let socketConnect = self.socketService.connect()
-                .debug("### socket_connect", trimOutput: true)
-                .map { Mutation.socketConnect($0) }
+        case let .loginButtonTap(datas):
+            let requestLogin = self.networkService.request(
+                .login(
+                    id: datas.first ?? "",
+                    pw: datas.last ?? ""
+                ),
+                type: LoginResponseModel.self
+            )
+            .map { $0 != nil }
+            .delay(.seconds(3), scheduler: MainScheduler.instance)
+            
             return .concat(
                 .just(.setLoading(true)),
-                .just(.setName(name)),
-                socketConnect,
+                requestLogin.map(Mutation.setLoginComplete),
                 .just(.setLoading(false))
             )
             
@@ -53,17 +54,11 @@ class LoginViewReactor: Reactor {
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
-        debug("mutation: \(mutation)")
-        
         var newState = state
         
         switch mutation {
-        case let .setName(name):
-            newState.name = name
-            return newState
-            
-        case let .socketConnect(isConnected):
-            newState.isConnected = isConnected
+        case let .setLoginComplete(isLoginComplete):
+            newState.isLoginComplete = isLoginComplete
             return newState
             
         case let .setLoading(isLoading):
@@ -72,10 +67,5 @@ class LoginViewReactor: Reactor {
             
         }
     }
-    
-}
-
-
-extension LoginViewReactor.Action: Equatable {
     
 }

@@ -24,8 +24,15 @@ protocol SocketServiceSpec {
 
 class SocketService: SocketServiceSpec {
     
+    private enum NameSpace: String {
+        case room = "room"
+        case chat = "chat"
+    }
+    
     private enum SocketEvent: String {
-        case chatMessage = "chat-msg"
+        case makeRoom = "make_room"
+        case leaveRoom = "leave_room"
+        case chatMessage = "chat_message"
     }
 
     private var manager: SocketManager!
@@ -42,13 +49,13 @@ class SocketService: SocketServiceSpec {
                 .compress
             ]
         )
+        
         self.addSocketHandlers()
     }
     
     func connect() -> Observable<Bool> {
         return .create { observer in
             self.statusObserver
-                .debug("### status_observer", trimOutput: true)
                 .subscribe { event in
                     let isConnected = event.element ?? false
                     observer.onNext(isConnected)
@@ -58,7 +65,6 @@ class SocketService: SocketServiceSpec {
             
             self.manager.reconnects = true
             self.manager.defaultSocket.connect(timeoutAfter: 3.0) {
-                debug("socket connect failed")
                 self.manager.reconnects = false
                 self.statusObserver.onNext(false)
             }

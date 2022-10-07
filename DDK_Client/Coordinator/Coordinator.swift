@@ -12,6 +12,7 @@ import RxSwift
 protocol CoordinatorSpec {
     func setRoot(_ type: SceneType) -> UIViewController
     func present(_ type: SceneType)
+    func presentFullScreen(_ type: SceneType)
     func dismiss()
 }
 
@@ -36,6 +37,14 @@ class Coordinator: CoordinatorSpec {
     
     func present(_ type: SceneType) {
         let target = viewController(type)
+        self.rootViewController?.present(
+            target,
+            animated: true
+        )
+    }
+    
+    func presentFullScreen(_ type: SceneType) {
+        let target = viewController(type)
         target.modalPresentationStyle = .fullScreen
         self.rootViewController?.present(
             target,
@@ -56,6 +65,12 @@ extension Coordinator {
         case .login:
             return di.container.resolve(
                 LoginViewController.self,
+                argument: false
+            )!
+            
+        case .signUp:
+            return di.container.resolve(
+                SignUpViewController.self,
                 argument: false
             )!
             
@@ -83,6 +98,12 @@ extension Reactive where Base: Coordinator {
     var present: Binder<SceneType> {
         return Binder(base) { coordinator, sceneType in
             coordinator.present(sceneType)
+        }
+    }
+    
+    var presentFullScreen: Binder<SceneType> {
+        return Binder(base) { coordinator, sceneType in
+            coordinator.presentFullScreen(sceneType)
         }
     }
     

@@ -19,11 +19,16 @@
 		8105083628AF1D3B003CC3A4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105083528AF1D3B003CC3A4 /* Coordinator.swift */; };
 		8105084528B5B869003CC3A4 /* MockSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105084428B5B869003CC3A4 /* MockSocketService.swift */; };
 		8105084728B74271003CC3A4 /* ChatRoomViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8105084628B74271003CC3A4 /* ChatRoomViewControllerSpec.swift */; };
-		815C220328A61105003EB07E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815C220228A61105003EB07E /* LoginViewController.swift */; };
 		815C220528A611FA003EB07E /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815C220428A611FA003EB07E /* SocketService.swift */; };
 		815EB1D228AB3289009F7C2C /* ChatRoomViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815EB1D128AB3289009F7C2C /* ChatRoomViewReactor.swift */; };
 		815EB1D428AB50A5009F7C2C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815EB1D328AB50A5009F7C2C /* UIViewController+Extension.swift */; };
 		815EB1DB28AC6A04009F7C2C /* ChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815EB1DA28AC6A04009F7C2C /* ChatData.swift */; };
+		8191726128E2CB64009C385C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8191726028E2CB63009C385C /* LoginView.swift */; };
+		8191726428E2D4FE009C385C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8191726328E2D4FE009C385C /* LoginViewController.swift */; };
+		8191726628E2DE2B009C385C /* ViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8191726528E2DE2B009C385C /* ViewAssembly.swift */; };
+		8191726828E2E2E7009C385C /* LoginViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8191726728E2E2E7009C385C /* LoginViewReactor.swift */; };
+		8191726C28E3D315009C385C /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8191726B28E3D315009C385C /* LoginResponseModel.swift */; };
+		8191726E28E3D9B3009C385C /* RefreshAccessTokenResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8191726D28E3D9B3009C385C /* RefreshAccessTokenResponseModel.swift */; };
 		819D77CA28A49E0900D597FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D77C928A49E0900D597FD /* AppDelegate.swift */; };
 		819D77CC28A49E0900D597FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D77CB28A49E0900D597FD /* SceneDelegate.swift */; };
 		819D77CE28A49E0900D597FD /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D77CD28A49E0900D597FD /* ChatRoomViewController.swift */; };
@@ -33,7 +38,13 @@
 		819D77E128A49E0B00D597FD /* LoginViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D77E028A49E0B00D597FD /* LoginViewControllerSpec.swift */; };
 		819D77EB28A49E0B00D597FD /* DDK_ClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D77EA28A49E0B00D597FD /* DDK_ClientUITests.swift */; };
 		819D77ED28A49E0B00D597FD /* DDK_ClientUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D77EC28A49E0B00D597FD /* DDK_ClientUITestsLaunchTests.swift */; };
-		81E5FA6A28A63C1A0063C75F /* LoginViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5FA6928A63C1A0063C75F /* LoginViewReactor.swift */; };
+		81C721EC28D19F8B006192DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81C721EB28D19F8B006192DB /* GoogleService-Info.plist */; };
+		81EC102128ED22AC00BD372C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EC102028ED22AC00BD372C /* SignUpView.swift */; };
+		81EC102328ED42BC00BD372C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EC102228ED42BC00BD372C /* SignUpViewController.swift */; };
+		81EC102528ED449000BD372C /* SignUpViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EC102428ED449000BD372C /* SignUpViewReactor.swift */; };
+		81EC103628EEACBF00BD372C /* SignUpResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EC103528EEACBF00BD372C /* SignUpResponseModel.swift */; };
+		81EC103A28EFB6E600BD372C /* TextFieldGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EC103928EFB6E600BD372C /* TextFieldGroup.swift */; };
+		81EC103C28F0164700BD372C /* IsDuplicateIDResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EC103B28F0164700BD372C /* IsDuplicateIDResponseModel.swift */; };
 		81FC25A028C1C45500ECFDBC /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC259F28C1C45500ECFDBC /* APIService.swift */; };
 		81FC25A228C1CE1300ECFDBC /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC25A128C1CE1300ECFDBC /* DefaultsKeys.swift */; };
 		81FC25A428C1D3EC00ECFDBC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC25A328C1D3EC00ECFDBC /* NetworkService.swift */; };
@@ -71,11 +82,16 @@
 		8105083528AF1D3B003CC3A4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8105084428B5B869003CC3A4 /* MockSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSocketService.swift; sourceTree = "<group>"; };
 		8105084628B74271003CC3A4 /* ChatRoomViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewControllerSpec.swift; sourceTree = "<group>"; };
-		815C220228A61105003EB07E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		815C220428A611FA003EB07E /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		815EB1D128AB3289009F7C2C /* ChatRoomViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewReactor.swift; sourceTree = "<group>"; };
 		815EB1D328AB50A5009F7C2C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		815EB1DA28AC6A04009F7C2C /* ChatData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatData.swift; sourceTree = "<group>"; };
+		8191726028E2CB63009C385C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		8191726328E2D4FE009C385C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8191726528E2DE2B009C385C /* ViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAssembly.swift; sourceTree = "<group>"; };
+		8191726728E2E2E7009C385C /* LoginViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewReactor.swift; sourceTree = "<group>"; };
+		8191726B28E3D315009C385C /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
+		8191726D28E3D9B3009C385C /* RefreshAccessTokenResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAccessTokenResponseModel.swift; sourceTree = "<group>"; };
 		819D77C628A49E0900D597FD /* DDK_Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDK_Client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		819D77C928A49E0900D597FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		819D77CB28A49E0900D597FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,7 +105,13 @@
 		819D77E628A49E0B00D597FD /* DDK_ClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDK_ClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		819D77EA28A49E0B00D597FD /* DDK_ClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDK_ClientUITests.swift; sourceTree = "<group>"; };
 		819D77EC28A49E0B00D597FD /* DDK_ClientUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDK_ClientUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		81E5FA6928A63C1A0063C75F /* LoginViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewReactor.swift; sourceTree = "<group>"; };
+		81C721EB28D19F8B006192DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		81EC102028ED22AC00BD372C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		81EC102228ED42BC00BD372C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		81EC102428ED449000BD372C /* SignUpViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewReactor.swift; sourceTree = "<group>"; };
+		81EC103528EEACBF00BD372C /* SignUpResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponseModel.swift; sourceTree = "<group>"; };
+		81EC103928EFB6E600BD372C /* TextFieldGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldGroup.swift; sourceTree = "<group>"; };
+		81EC103B28F0164700BD372C /* IsDuplicateIDResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsDuplicateIDResponseModel.swift; sourceTree = "<group>"; };
 		81FC259F28C1C45500ECFDBC /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		81FC25A128C1CE1300ECFDBC /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		81FC25A328C1D3EC00ECFDBC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -155,6 +177,7 @@
 				8105082728AE10A8003CC3A4 /* DIContainer.swift */,
 				8105082A28AE1137003CC3A4 /* ServiceAssembly.swift */,
 				8105082C28AE13E1003CC3A4 /* ReactorAssembly.swift */,
+				8191726528E2DE2B009C385C /* ViewAssembly.swift */,
 				8105082E28AE1548003CC3A4 /* ViewControllerAssembly.swift */,
 			);
 			path = DI;
@@ -172,10 +195,12 @@
 		815EB1D528AB84E2009F7C2C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				815C220228A61105003EB07E /* LoginViewController.swift */,
-				81E5FA6928A63C1A0063C75F /* LoginViewReactor.swift */,
+				8191726328E2D4FE009C385C /* LoginViewController.swift */,
+				8191726728E2E2E7009C385C /* LoginViewReactor.swift */,
 				819D77CD28A49E0900D597FD /* ChatRoomViewController.swift */,
 				815EB1D128AB3289009F7C2C /* ChatRoomViewReactor.swift */,
+				81EC102228ED42BC00BD372C /* SignUpViewController.swift */,
+				81EC102428ED449000BD372C /* SignUpViewReactor.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -212,8 +237,22 @@
 			isa = PBXGroup;
 			children = (
 				815EB1DA28AC6A04009F7C2C /* ChatData.swift */,
+				81EC103B28F0164700BD372C /* IsDuplicateIDResponseModel.swift */,
+				81EC103528EEACBF00BD372C /* SignUpResponseModel.swift */,
+				8191726B28E3D315009C385C /* LoginResponseModel.swift */,
+				8191726D28E3D9B3009C385C /* RefreshAccessTokenResponseModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8191726228E2CB6A009C385C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8191726028E2CB63009C385C /* LoginView.swift */,
+				81EC102028ED22AC00BD372C /* SignUpView.swift */,
+				81EC103928EFB6E600BD372C /* TextFieldGroup.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		819D77BD28A49E0900D597FD = {
@@ -241,6 +280,7 @@
 		819D77C828A49E0900D597FD /* DDK_Client */ = {
 			isa = PBXGroup;
 			children = (
+				81C721EB28D19F8B006192DB /* GoogleService-Info.plist */,
 				819D77C928A49E0900D597FD /* AppDelegate.swift */,
 				819D77CB28A49E0900D597FD /* SceneDelegate.swift */,
 				819D77D728A49E0B00D597FD /* Info.plist */,
@@ -251,6 +291,7 @@
 				8105083428AF14BB003CC3A4 /* Coordinator */,
 				815EB1D628AB84EB009F7C2C /* Service */,
 				815EB1DC28AC6A09009F7C2C /* Model */,
+				8191726228E2CB6A009C385C /* View */,
 				815EB1D528AB84E2009F7C2C /* ViewController */,
 			);
 			path = DDK_Client;
@@ -300,6 +341,7 @@
 				819D77C328A49E0900D597FD /* Frameworks */,
 				819D77C428A49E0900D597FD /* Resources */,
 				E478D584A60119B507E4CC59 /* [CP] Embed Pods Frameworks */,
+				81C721ED28D1A01C006192DB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -399,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				819D77D628A49E0B00D597FD /* LaunchScreen.storyboard in Resources */,
+				81C721EC28D19F8B006192DB /* GoogleService-Info.plist in Resources */,
 				819D77D328A49E0B00D597FD /* Assets.xcassets in Resources */,
 				819D77D128A49E0900D597FD /* Main.storyboard in Resources */,
 			);
@@ -499,6 +542,25 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DDK_ClientTests/Pods-DDK_ClientTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		81C721ED28D1A01C006192DB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		BEBED4719B81C9D5F1A4F0F0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -545,26 +607,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8191726C28E3D315009C385C /* LoginResponseModel.swift in Sources */,
 				815EB1DB28AC6A04009F7C2C /* ChatData.swift in Sources */,
 				8105083128AE2274003CC3A4 /* Consts.swift in Sources */,
+				81EC102528ED449000BD372C /* SignUpViewReactor.swift in Sources */,
 				8105082828AE10A8003CC3A4 /* DIContainer.swift in Sources */,
 				815EB1D428AB50A5009F7C2C /* UIViewController+Extension.swift in Sources */,
 				815C220528A611FA003EB07E /* SocketService.swift in Sources */,
-				815C220328A61105003EB07E /* LoginViewController.swift in Sources */,
+				8191726828E2E2E7009C385C /* LoginViewReactor.swift in Sources */,
 				819D77CE28A49E0900D597FD /* ChatRoomViewController.swift in Sources */,
+				8191726628E2DE2B009C385C /* ViewAssembly.swift in Sources */,
 				8105082F28AE1548003CC3A4 /* ViewControllerAssembly.swift in Sources */,
 				815EB1D228AB3289009F7C2C /* ChatRoomViewReactor.swift in Sources */,
+				8191726E28E3D9B3009C385C /* RefreshAccessTokenResponseModel.swift in Sources */,
 				819D77CA28A49E0900D597FD /* AppDelegate.swift in Sources */,
+				8191726428E2D4FE009C385C /* LoginViewController.swift in Sources */,
 				81FC25A428C1D3EC00ECFDBC /* NetworkService.swift in Sources */,
 				8105083628AF1D3B003CC3A4 /* Coordinator.swift in Sources */,
+				81EC102128ED22AC00BD372C /* SignUpView.swift in Sources */,
+				81EC103628EEACBF00BD372C /* SignUpResponseModel.swift in Sources */,
 				8105083328AF14B2003CC3A4 /* SceneType.swift in Sources */,
 				8105082528ADDA21003CC3A4 /* Util.swift in Sources */,
 				8105082B28AE1137003CC3A4 /* ServiceAssembly.swift in Sources */,
+				8191726128E2CB64009C385C /* LoginView.swift in Sources */,
+				81EC103A28EFB6E600BD372C /* TextFieldGroup.swift in Sources */,
 				81FC25A228C1CE1300ECFDBC /* DefaultsKeys.swift in Sources */,
 				819D77CC28A49E0900D597FD /* SceneDelegate.swift in Sources */,
 				8105082D28AE13E1003CC3A4 /* ReactorAssembly.swift in Sources */,
+				81EC102328ED42BC00BD372C /* SignUpViewController.swift in Sources */,
+				81EC103C28F0164700BD372C /* IsDuplicateIDResponseModel.swift in Sources */,
 				81FC25A028C1C45500ECFDBC /* APIService.swift in Sources */,
-				81E5FA6A28A63C1A0063C75F /* LoginViewReactor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,6 +817,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4K3PMR7F3H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DDK_Client/Info.plist;

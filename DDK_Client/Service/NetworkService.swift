@@ -10,11 +10,13 @@ import JWTDecode
 import Moya
 import RxCocoa
 import RxSwift
-import SwiftyJSON
 import SwiftyUserDefaults
 
 protocol NetworkServiceSpec {
-    func request(_ api: APIService)  -> Observable<JSON?>
+    func request<D: Decodable>(
+        _ api: APIService,
+        type: D.Type
+    ) -> Observable<D?>
 }
 
 class NetworkService: NetworkServiceSpec {
@@ -22,8 +24,14 @@ class NetworkService: NetworkServiceSpec {
     private let provider = MoyaProvider<APIService>()
     private var disposeBag: DisposeBag!
 
-    func request(_ api: APIService)  -> Observable<JSON?> {
-        let requestAPI = self.observable(for: api)
+    func request<D: Decodable>(
+        _ api: APIService,
+        type: D.Type
+    ) -> Observable<D?> {
+        let requestAPI = self.observable(
+            for: api,
+            type: D.self
+        )
 
         switch api {
         case .signUp,
@@ -37,13 +45,20 @@ class NetworkService: NetworkServiceSpec {
         }
     }
     
-    private func observable(for api: APIService) -> Observable<JSON?> {
+    private func observable<D: Decodable>(
+        for api: APIService,
+        type: D.Type
+    ) -> Observable<D?> {
         return self.provider.rx
             .request(api)
-            .debug("### observable: \(api)", trimOutput: true)
             .retry(3)
             .observe(on: ConcurrentDispatchQueueScheduler(qos: .background))
-            .map { JSON($0.data) }
+            .map {
+                return try? JSONDecoder().decode(
+                    D.self,
+                    from: $0.data
+                )
+            }
             .catchAndReturn(nil)
             .asObservable()
     }
@@ -65,18 +80,20 @@ class NetworkService: NetworkServiceSpec {
         }
         
         if isRefreshTokenExpired {
-            debug("isRefreshTokenExpired")
             // Refresh 토큰 만료 시 모두 재발급
             let loginID = Defaults[\.loginID] ?? ""
             let loginPW = Defaults[\.loginPW] ?? ""
             
-            return self.observable(for: .login(
-                id: loginID,
-                pw: loginPW
-            ))
-            .map { json -> Void in
-                Defaults[\.accessToken] = json?["accessToken"].string
-                Defaults[\.refreshToken] = json?["refreshToken"].string
+            return self.observable(
+                for: .login(
+                    id: loginID,
+                    pw: loginPW
+                ),
+                type: LoginResponseModel.self
+            )
+            .map { model -> Void in
+                Defaults[\.accessToken] = model?.accessToken ?? ""
+                Defaults[\.refreshToken] = model?.refreshToken ?? ""
                 return ()
             }
         } else if isAccessTokenExpired {
@@ -84,11 +101,14 @@ class NetworkService: NetworkServiceSpec {
             // Access 토큰 만료 시 재발급
             let refreshToken = Defaults[\.refreshToken] ?? ""
             
-            return self.observable(for: .refreshAccessToken(refreshToken: refreshToken))
-                .map { json -> Void in
-                    Defaults[\.accessToken] = json?["accessToken"].string
-                    return ()
-                }
+            return self.observable(
+                for: .refreshAccessToken(refreshToken: refreshToken),
+                type: RefreshAccessTokenResponseModel.self
+            )
+            .map { model -> Void in
+                Defaults[\.accessToken] = model?.accessToken
+                return ()
+            }
         }
         
         // 토큰 모두 만료되지 않음

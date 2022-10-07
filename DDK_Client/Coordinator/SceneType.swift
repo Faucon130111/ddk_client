@@ -7,5 +7,6 @@
 
 enum SceneType {
     case login
+    case signUp
     case chatRoom(name: String)
 }

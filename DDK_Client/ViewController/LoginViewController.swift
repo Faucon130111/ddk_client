@@ -2,66 +2,78 @@
 //  LoginViewController.swift
 //  DDK_Client
 //
-//  Created by iOS Developer on 2022/08/12.
+//  Created by 박본혁 on 2022/09/27.
 //
 
 import UIKit
 
 import ReactorKit
 import RxCocoa
-import RxOptional
 import RxSwift
+import SnapKit
 
-class LoginViewController: UIViewController, StoryboardView {
+class LoginViewController:
+    UIViewController,
+    View {
     
     typealias Reactor = LoginViewReactor
     var disposeBag: DisposeBag = DisposeBag()
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var enterButton: UIButton!
+    private var loginView: LoginView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init(
+        view loginView: LoginView,
+        reactor: LoginViewReactor
+    ) {
+        super.init(
+            nibName: nil,
+            bundle: nil
+        )
         
-        self.nameTextField.rx.text
-            .filterNil()
-            .map { $0.count > 0 }
-            .bind(to: self.enterButton.rx.isEnabled)
-            .disposed(by: self.disposeBag)
+        self.loginView = loginView
+        self.reactor = reactor
+        
+        self.view.addSubview(loginView)
+        loginView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.height.equalToSuperview()
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func bind(reactor: LoginViewReactor) {
-        self.enterButton.rx.tap
-            .do(onNext: { _ in
-                self.view.endEditing(true)
-            })
-            .map { self.nameTextField.text ?? "" }
-            .map(Reactor.Action.enterButtonTap)
+        Observable<String>.combineLatest([
+            self.loginView.rx.id,
+            self.loginView.rx.pw
+        ])
+        .map { strings -> Bool in
+            let id = strings.first ?? ""
+            let pw = strings.last ?? ""
+            return id.count > 0 && pw.count > 0
+        }
+        .bind(to: self.loginView.rx.loginButtonIsEnabled)
+        .disposed(by: self.disposeBag)
+        
+        self.loginView.rx.loginButtonTap
+            .map(Reactor.Action.loginButtonTap)
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
-        let isConnect = reactor.pulse(\.$isConnected)
-            .filterNil()
-            .debug("### isConnected")
-            .share()
-        
-        isConnect
-            .filter { $0 == false }
-            .map { _ in (
-                title: "서버 접속 실패",
-                message: "잠시 후 다시 시도해 주세요."
-            )}
-            .bind(to: self.rx.showAlert)
-            .disposed(by: self.disposeBag)
-        
-        isConnect
-            .filter { $0 == true }
-            .map { _ in reactor.currentState.name }
-            .map(SceneType.chatRoom)
+        self.loginView.rx.signUpButtonTap
+            .map { _ in SceneType.signUp }
             .bind(to: Coordinator.instance.rx.present)
             .disposed(by: self.disposeBag)
         
+        reactor.pulse(\.$isLoginComplete)
+            .subscribe(onNext: { isLoginComplete in
+            })
+            .disposed(by: self.disposeBag)
+        
         reactor.state.map { $0.isLoading }
+            .distinctUntilChanged()
             .bind(to: self.rx.setActivityIndicator)
             .disposed(by: self.disposeBag)
     }

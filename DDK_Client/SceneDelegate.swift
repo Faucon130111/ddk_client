@@ -24,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         else {
             return
         }
+        
         let coordinator = Coordinator.instance
         let loginViewController = coordinator.setRoot(.login)
         

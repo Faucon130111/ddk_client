@@ -13,8 +13,11 @@ class ServiceAssembly: Assembly {
         container.register(SocketService.self) { _ in
             let url = URL(string: Consts.URL.socketServer.rawValue)!
             return SocketService(url: url)
-        }
-        .inObjectScope(.container)
+        }.inObjectScope(.container)
+        
+        container.register(NetworkService.self) { _ in
+            return NetworkService()
+        }.inObjectScope(.container)
     }
     
 }

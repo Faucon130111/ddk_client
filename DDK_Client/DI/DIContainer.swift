@@ -20,6 +20,7 @@ class DIContainer {
             [
                 ServiceAssembly(),
                 ReactorAssembly(),
+                ViewAssembly(),
                 ViewControllerAssembly()
             ],
             container: self.container

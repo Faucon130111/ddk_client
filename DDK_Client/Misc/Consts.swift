@@ -10,7 +10,7 @@ import Foundation
 enum Consts {
     
     enum URL: String {
-        case socketServer = ""
+        case socketServer = "http://192.168.7.110:3000"
     }
     
     enum StoryBoard: String {
